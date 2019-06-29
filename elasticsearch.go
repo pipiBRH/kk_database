@@ -24,17 +24,11 @@ func InitElasticsearchConnection(host string, port int) error {
 	client, err := elastic.NewClient(
 		elastic.SetErrorLog(errorlog),
 		elastic.SetURL(addr),
-		// elastic.SetHealthcheck(false),
 		elastic.SetSniff(false),
 	)
 	if err != nil {
 		return err
 	}
-
-	// _, _, err = client.Ping(addr).Do(ctx)
-	// if err != nil {
-	// 	return err
-	// }
 
 	EsClient = &ElasticsearchConnection{
 		Ctx:    ctx,
