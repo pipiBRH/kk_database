@@ -31,10 +31,10 @@ func InitElasticsearchConnection(host string, port int) error {
 		return err
 	}
 
-	_, _, err = client.Ping(addr).Do(ctx)
-	if err != nil {
-		return err
-	}
+	// _, _, err = client.Ping(addr).Do(ctx)
+	// if err != nil {
+	// 	return err
+	// }
 
 	EsClient = &ElasticsearchConnection{
 		Ctx:    ctx,
